@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio | Minimalist Design</title>
+    <style>
+        /* --- 1. BASE STYLES --- */
+        :root {
+            --bg-color: #f7f5f0;
+            --text-color: #1a1a1a;
+            --accent-color: #666666;
+            --link-hover: #000000;
+            --max-width: 700px; /* Constraining width for readability */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- 2. LAYOUT --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 80px 0; /* Vertical breathing room */
+        }
+
+        section {
+            margin-bottom: 100px; /* Space between sections */
+        }
+
+        /* --- 3. TYPOGRAPHY & LINKS --- */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.6;
+        }
+
+        /* --- 4. HEADER & NAV --- */
+        header {
+            margin-bottom: 120px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* ---5. HEADER PROFILE LAYOUT --- */
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: contain;
+            object-position: center;
+            background-color: #ffffff;
+            padding: 3px;
+            border: 5px solid #e5e5e5;
+        }
+
+        @media (max-width: 600px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .profile-pic {
+                width: 90px;
+                height: 90px;
+                margin-top: 20px;
+            }
+        }
+        
+        /* --- 6. PROJECTS --- */
+        .project-item {
+            margin-bottom: 40px;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+            text-decoration: none;
+        }
+
+        .education-item {
+            margin-bottom: 40px;
+        }
+
+        .education-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+            text-decoration: none;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .view-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- 7. CONTACT --- */
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* --- 8. RESPONSIVENESS --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 0;
+            }
+            header {
+                margin-bottom: 60px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- <header>
+            <h1>Deepesh Tickoo</h1>
+            <p class="tagline">Vibe-coding, laid-back digital experiences.</p>
+            <nav> -->
+        
+        
+        <header>
+            <div class="header-top">
+                <div>
+                    <h1>Deepesh Tickoo</h1>
+                    <p class="tagline">Vibe-coding, laid-back digital experiences.</p>
+                </div>
+
+                
+                <img src="img.JPG" alt="Deepesh Tickoo" class="profile-pic">
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                Experienced software developer with a passion for creating intuitive and efficient digital solutions. With a background in full-stack development, I specialize in building scalable web applications that prioritize user experience and performance.
+            </p>
+            <p>
+                Expertise also include building and optimizing development workflows, ensuring that projects are delivered on time and with high quality. I thrive in collaborative environments and am always eager to learn new technologies and methodologies to enhance my skill set.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Selected Projects</h2>
+
+            <div class="project-item">
+                <span class="project-title">Snloe - Build the Future today</span>
+                <p class="project-description">A private firm specializing in building innovative digital products and services for clients in various industries.</p>
+                <a href="https://www.snloe.com" target="_blank" rel="noopener noreferrer" class="view-link">View Project &rarr;</a>
+            </div>
+
+            <div class="project-item">
+                <span class="project-title">Automatic Water-Supply Storage System</span>
+                <p class="project-description">A complete hands on approach to automating water supply management in residential and commercial buildings.</p>
+                <a href="https://github.com/deepeshtickoo/automation_water_storage" target="_blank" rel="noopener noreferrer" class="view-link">View Project &rarr;</a>
+            </div>
+
+            <div class="project-item">
+                <span class="project-title">Book-Biz management system</span>
+                <p class="project-description">An open source project for managing book inventory and circulation in libraries and bookstores.</p>
+                <a href="https://github.com/deepeshtickoo/BookBizManagementSystem" target="_blank" rel="noopener noreferrer" class="view-link">View Project &rarr;</a>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <span class="education-title">Attestations of College Studies in Software Development</span>
+                <p class="education-description">Vanier College, Quebec, Canada (2021 - 2023)</p>
+            </div>
+
+            <div class="education-item">
+                <span class="education-title">Bachelor of Technology in Computer Science and Engineering</span>
+                <p class="education-description">PDM College of Engineering, Haryana, India (2013 - 2017)</p>
+            </div>
+
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <ul class="contact-list">
+                <li>Email: <a href="mailto:hello@dpstq.dpdns.org">hello@dpstq.dpdns.org</a></li>
+                <li>LinkedIn: <a href="https://linkedin.com/in/deepeshtickoo" target="_blank">linkedin.com/in/deepeshtickoo</a></li>
+                <li>GitHub: <a href="https://github.com/deepeshtickoo" target="_blank">github.com/deepeshtickoo</a></li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
