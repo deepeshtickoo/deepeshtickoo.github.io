@@ -202,7 +202,7 @@
         <section id="skills">
             <h2>Skills</h2>
             <ul class="skills-list">
-                <li><strong>Languages &amp; runtimes</strong>JavaScript (Node.js, Node-RED), SQL, Bash, C++ (ESP32 firmware), YAML</li>
+                <li><strong>Languages &amp; runtimes</strong>JavaScript (Node.js, Express, Node-RED), SQL, Bash, C++ (ESP32 firmware), YAML</li>
                 <li><strong>APIs &amp; protocols</strong>REST, Webhooks, WebSocket, Telegram Bot API, SMTP, RTSP, MCP, OpenAI-compatible LLM APIs</li>
                 <li><strong>Databases &amp; storage</strong>SQLite (schema design, retention), SQL injection hardening, ZFS / TrueNAS</li>
                 <li><strong>DevOps, OS &amp; networking</strong>Linux, TrueNAS SCALE, KVM VMs, Docker, network bridges, DHCP reservations, Cloudflare Tunnel, Tailscale, Git / GitHub</li>
@@ -250,6 +250,12 @@
                 <span class="project-title">Automatic Water Supply Storage System</span>
                 <p class="project-description">Event-driven controller for an unreliable alternate-day municipal supply. Checks for water every 5 minutes, judges flow and quality, runs the pump with safety cut-offs, and logs everything to SQLite. Built on Node-RED, Home Assistant and ESP32.</p>
                 <a href="https://github.com/deepeshtickoo/automation_water_storage" target="_blank" rel="noopener noreferrer" class="view-link">View Project &rarr;</a>
+            </div>
+
+            <div class="project-item">
+                <span class="project-title">Water API &amp; Phone Dashboard</span>
+                <p class="project-description">A read-only REST API and mobile dashboard for the water system, built with Node.js 22 and Express and packaged as a Docker container running as a Home Assistant app. Serves live sensor states from the Home Assistant API, a daily summary and history charts (server-drawn SVG) from the controller's SQLite database, with optional Basic auth and code that reloads without rebuilding the image.</p>
+                <a href="https://github.com/deepeshtickoo/automation_water_storage/tree/main/water-api" target="_blank" rel="noopener noreferrer" class="view-link">View Project &rarr;</a>
             </div>
 
             <div class="project-item">
