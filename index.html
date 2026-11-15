@@ -98,6 +98,21 @@
             .profile-pic { width: 90px; height: 90px; margin-top: 20px; }
         }
 
+        /* --- 6b. PROJECT SCREENSHOTS, DIAGRAM, TOOLBOX --- */
+        .project-media { margin: 12px 0 8px; }
+        .project-media img { display: block; width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); }
+        .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .shots img { aspect-ratio: 9 / 16; object-fit: cover; object-position: top; background: #0f1419; }
+        .media-note { font-size: 0.8rem; color: var(--accent-color); margin-top: 6px; }
+        .arch { width: 100%; height: auto; display: block; }
+        .arch text { font-family: inherit; }
+        .toolbox-intro { margin-bottom: 16px; }
+        .toolbox { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+        .tool { background: var(--surface); border-radius: 8px; padding: 14px 16px; border-top: 3px solid var(--primary); box-shadow: 0 1px 3px rgba(20, 33, 61, 0.08); }
+        .tool-name { font-weight: 600; color: var(--text-color); display: block; }
+        .tool-cat { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); font-weight: 600; }
+        .tool p { font-size: 0.88rem; margin: 6px 0 0; }
+
         /* --- 6. PROJECTS, EXPERIENCE, EDUCATION --- */
         .project-item, .education-item, .experience-item {
             margin-bottom: 24px;
@@ -183,6 +198,7 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#toolbox">Toolbox</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -197,6 +213,9 @@
             <p>
                 Today I design and run event-driven services on self-hosted Linux: state machines, REST and webhook integrations, SQL data layers, monitoring and alerts, plus LLM routing and MCP tool access. I debug from data and own systems in production.
             </p>
+            <p>
+                I'm looking for roles in IT services and service delivery: infrastructure, backend and support engineering where I build, run and look after systems for clients. Everything listed under <a href="#toolbox">Toolbox</a> runs in my own setup today, and I'm happy to walk an interviewer through any of it live.
+            </p>
         </section>
 
         <section id="skills">
@@ -207,7 +226,7 @@
                 <li><strong>Databases &amp; storage</strong>SQLite (schema design, retention), SQL injection hardening, ZFS / TrueNAS</li>
                 <li><strong>DevOps, OS &amp; networking</strong>Linux, TrueNAS SCALE, KVM VMs, Docker, Docker Compose, network bridges, DHCP reservations, Cloudflare Tunnel, Tailscale, Git / GitHub, GitHub Actions (CI)</li>
                 <li><strong>Monitoring &amp; observability</strong>Prometheus, Grafana (dashboards as code), Loki, Grafana Alloy, node-exporter</li>
-                <li><strong>AI &amp; automation</strong>Node-RED, Home Assistant, LLM gateways (FreeLLMAPI), Ollama, Open WebUI, Frigate NVR</li>
+                <li><strong>AI &amp; automation</strong>Node-RED, Home Assistant, LLM gateways (FreeLLMAPI), Ollama, Open WebUI</li>
             </ul>
         </section>
 
@@ -217,7 +236,7 @@
             <div class="experience-item">
                 <span class="experience-title">Independent Backend &amp; Systems Engineer</span>
                 <p class="experience-meta">Delhi NCR (2025 - Present)</p>
-                <p class="experience-description">Built and run a live, automatic water supply controller with a SQLite event store, Telegram bot and email reports, plus a tested Node.js/Express API for it with GitHub Actions CI. Operate a TrueNAS server with a Home Assistant VM, Docker apps, Frigate CCTV and a multi-provider LLM gateway behind Cloudflare Tunnel, monitored with Prometheus, Grafana and Loki.</p>
+                <p class="experience-description">Built and run a live, automatic water supply controller with a SQLite event store, Telegram bot and email reports, plus a tested Node.js/Express API for it with GitHub Actions CI. Operate a TrueNAS server with a Home Assistant VM, Docker apps and a multi-provider LLM gateway behind Cloudflare Tunnel, monitored with Prometheus, Grafana and Loki.</p>
             </div>
 
             <div class="experience-item">
@@ -250,18 +269,91 @@
             <div class="project-item">
                 <span class="project-title">Automatic Water Supply Storage System</span>
                 <p class="project-description">Event-driven controller for an unreliable alternate-day municipal supply. Checks for water every 5 minutes, judges flow and quality, runs the pump with safety cut-offs, and logs everything to SQLite. Built on Node-RED, Home Assistant and ESP32.</p>
+                <div class="project-media">
+                    <svg class="arch" viewBox="0 0 632 200" role="img" aria-label="Controller routine: probe for supply, wait 40 minutes, valve check on TDS, 50 second pump pulse, then fill to 95 percent, with fallbacks for bad water and low flow">
+                        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1a3a7a"/></marker></defs>
+                        <rect x="0" y="0" width="632" height="200" rx="8" fill="#f2f6fc"/>
+                        <text x="10" y="26" fill="#14213d" font-size="13" font-weight="700">Controller routine (supply day, 12 PM to 6 PM)</text>
+                        <rect x="10" y="40" width="108" height="64" rx="6" fill="#eef3fb" stroke="#1a3a7a" stroke-width="1.2"/>
+                        <text x="64" y="66" text-anchor="middle" fill="#14213d" font-size="12" font-weight="700">Probe</text>
+                        <text x="64" y="84" text-anchor="middle" fill="#4a5b78" font-size="10.5">valve 10 s / 5 min</text>
+                        <rect x="136" y="40" width="108" height="64" rx="6" fill="#eef3fb" stroke="#1a3a7a" stroke-width="1.2"/>
+                        <text x="190" y="66" text-anchor="middle" fill="#14213d" font-size="12" font-weight="700">Wait</text>
+                        <text x="190" y="84" text-anchor="middle" fill="#4a5b78" font-size="10.5">40 min flush</text>
+                        <rect x="262" y="40" width="108" height="64" rx="6" fill="#eef3fb" stroke="#1a3a7a" stroke-width="1.2"/>
+                        <text x="316" y="66" text-anchor="middle" fill="#14213d" font-size="12" font-weight="700">Valve check</text>
+                        <text x="316" y="84" text-anchor="middle" fill="#4a5b78" font-size="10.5">TDS start vs end</text>
+                        <rect x="388" y="40" width="108" height="64" rx="6" fill="#eef3fb" stroke="#1a3a7a" stroke-width="1.2"/>
+                        <text x="442" y="66" text-anchor="middle" fill="#14213d" font-size="12" font-weight="700">Pump pulse</text>
+                        <text x="442" y="84" text-anchor="middle" fill="#4a5b78" font-size="10.5">50 s, TDS in range?</text>
+                        <rect x="514" y="40" width="108" height="64" rx="6" fill="#1a3a7a" stroke="#1a3a7a" stroke-width="1.2"/>
+                        <text x="568" y="66" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Fill</text>
+                        <text x="568" y="84" text-anchor="middle" fill="#fff" font-size="10.5">until tank 95%</text>
+                        <path d="M118 72 h14" stroke="#1a3a7a" stroke-width="2" marker-end="url(#ar)"/>
+                        <path d="M244 72 h14" stroke="#1a3a7a" stroke-width="2" marker-end="url(#ar)"/>
+                        <path d="M370 72 h14" stroke="#1a3a7a" stroke-width="2" marker-end="url(#ar)"/>
+                        <path d="M496 72 h14" stroke="#1a3a7a" stroke-width="2" marker-end="url(#ar)"/>
+                        <path d="M442 104 v28 h-126 v-26" fill="none" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ar2)"/>
+                        <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b45309"/></marker></defs>
+                        <text x="379" y="146" text-anchor="middle" fill="#b45309" font-size="10.5">TDS out of range: re-check in 15 min</text>
+                        <text x="10" y="172" fill="#4a5b78" font-size="11">Stops: tank 95%, flow under 19 L/min or dry run (then pump pulses every 30 min), 2 h run cap.</text>
+                        <text x="10" y="189" fill="#4a5b78" font-size="11">Pump and drain valve are never on together. Every probe, run and event is logged to SQLite.</text>
+                    </svg>
+                </div>
                 <a href="https://github.com/deepeshtickoo/automation_water_storage" target="_blank" rel="noopener noreferrer" class="view-link">View Project &rarr;</a>
             </div>
 
             <div class="project-item">
                 <span class="project-title">Water API &amp; Phone Dashboard</span>
                 <p class="project-description">A read-only REST API and mobile dashboard for the water system, built with Node.js 22 and Express and packaged as a Docker container running as a Home Assistant app. Serves live sensor states from the Home Assistant API, a daily summary and history charts (server-drawn SVG) from the controller's SQLite database, with optional Basic auth and code that reloads without rebuilding the image. Every change runs an automated test suite and Docker build in GitHub Actions.</p>
+                <div class="project-media">
+                    <div class="shots">
+                        <img src="img/water-api-live.webp" alt="Live page: tank, pump, drain valve, flow, TDS and mains voltage" loading="lazy">
+                        <img src="img/water-api-today.webp" alt="Today page: tank change, pump time, fills, pump runs and supply events" loading="lazy">
+                        <img src="img/water-api-history.webp" alt="History page: tank level, pump power and TDS charts" loading="lazy">
+                    </div>
+                    <p class="media-note">Live, Today and History pages (sample data).</p>
+                </div>
                 <a href="https://github.com/deepeshtickoo/automation_water_storage/tree/main/water-api" target="_blank" rel="noopener noreferrer" class="view-link">View Project &rarr;</a>
             </div>
 
             <div class="project-item">
                 <span class="project-title">Self-Hosted Homelab, Observability &amp; LLM Gateway</span>
-                <p class="project-description">A TrueNAS SCALE server running a Home Assistant VM and Docker apps, with remote access through Cloudflare Tunnel. Six IP cameras feed Frigate over RTSP. One multi-provider LLM gateway (FreeLLMAPI) serves Home Assistant Assist, a Telegram bot and Open WebUI with a single API key, and the AI backend has been swapped three times without touching the apps that use it. An observability stack runs alongside as one Docker Compose app: Prometheus scrapes the server and every Home Assistant sensor, Grafana Alloy ships all container and host logs to Loki, and a Grafana dashboard tracks the water system live; Mosquitto provides an authenticated MQTT broker.</p>
+                <p class="project-description">A TrueNAS SCALE server running a Home Assistant VM and Docker apps, with remote access through Cloudflare Tunnel. One multi-provider LLM gateway (FreeLLMAPI) serves Home Assistant Assist, a Telegram bot and Open WebUI with a single API key, and the AI backend has been swapped three times without touching the apps that use it. An observability stack runs alongside as one Docker Compose app: Prometheus scrapes the server and every Home Assistant sensor, Grafana Alloy ships all container and host logs to Loki, and a Grafana dashboard tracks the water system live; Mosquitto provides an authenticated MQTT broker.</p>
+                <div class="project-media">
+                    <svg class="arch" viewBox="0 0 640 330" role="img" aria-label="Homelab architecture: Cloudflare Tunnel and Tailscale into a TrueNAS SCALE server running Docker apps, an observability stack and a Home Assistant VM fed by ESP32 sensors">
+                        <rect x="0" y="0" width="640" height="330" rx="8" fill="#f2f6fc"/>
+                        <rect x="20" y="16" width="600" height="36" rx="6" fill="#1a3a7a"/>
+                        <text x="320" y="39" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Remote access: Cloudflare Tunnel (HTTPS) and Tailscale (WireGuard VPN)</text>
+                        <rect x="20" y="66" width="600" height="250" rx="8" fill="#fff" stroke="#1a3a7a" stroke-width="1.5"/>
+                        <text x="36" y="88" fill="#14213d" font-size="13" font-weight="700">TrueNAS SCALE (ZFS storage, Docker, KVM)</text>
+                        <rect x="36" y="100" width="180" height="200" rx="6" fill="#eef3fb" stroke="#d6e0f0"/>
+                        <text x="126" y="120" text-anchor="middle" fill="#1a3a7a" font-size="12" font-weight="700">Docker apps</text>
+                        <text x="126" y="145" text-anchor="middle" fill="#4a5b78" font-size="12">Nextcloud, Immich</text>
+                        <text x="126" y="167" text-anchor="middle" fill="#4a5b78" font-size="12">Open WebUI</text>
+                        <text x="126" y="189" text-anchor="middle" fill="#4a5b78" font-size="12">FreeLLMAPI gateway</text>
+                        <text x="126" y="211" text-anchor="middle" fill="#4a5b78" font-size="12">cloudflared, Tailscale</text>
+                        <rect x="230" y="100" width="180" height="200" rx="6" fill="#eef3fb" stroke="#d6e0f0"/>
+                        <text x="320" y="120" text-anchor="middle" fill="#1a3a7a" font-size="12" font-weight="700">Observability (Compose)</text>
+                        <text x="320" y="145" text-anchor="middle" fill="#4a5b78" font-size="12">Prometheus + node-exporter</text>
+                        <text x="320" y="167" text-anchor="middle" fill="#4a5b78" font-size="12">Grafana dashboards</text>
+                        <text x="320" y="189" text-anchor="middle" fill="#4a5b78" font-size="12">Loki + Grafana Alloy</text>
+                        <text x="320" y="211" text-anchor="middle" fill="#4a5b78" font-size="12">Mosquitto MQTT</text>
+                        <text x="320" y="245" text-anchor="middle" fill="#1a3a7a" font-size="11">metrics and logs from</text>
+                        <text x="320" y="260" text-anchor="middle" fill="#1a3a7a" font-size="11">every app and the VM</text>
+                        <rect x="424" y="100" width="180" height="200" rx="6" fill="#eef3fb" stroke="#d6e0f0"/>
+                        <text x="514" y="120" text-anchor="middle" fill="#1a3a7a" font-size="12" font-weight="700">VM: Home Assistant OS</text>
+                        <text x="514" y="145" text-anchor="middle" fill="#4a5b78" font-size="12">Node-RED controller</text>
+                        <text x="514" y="167" text-anchor="middle" fill="#4a5b78" font-size="12">Water API (Node.js)</text>
+                        <text x="514" y="189" text-anchor="middle" fill="#4a5b78" font-size="12">SQLite event store</text>
+                        <text x="514" y="211" text-anchor="middle" fill="#4a5b78" font-size="12">ESPHome</text>
+                        <rect x="454" y="240" width="120" height="40" rx="6" fill="#1a3a7a"/>
+                        <text x="514" y="257" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">ESP32 sensors</text>
+                        <text x="514" y="272" text-anchor="middle" fill="#fff" font-size="10">flow, TDS, tank, valve</text>
+                        <line x1="410" y1="200" x2="424" y2="200" stroke="#1a3a7a" stroke-width="2"/>
+                        <line x1="216" y1="200" x2="230" y2="200" stroke="#1a3a7a" stroke-width="2"/>
+                    </svg>
+                </div>
                 <a href="https://github.com/deepeshtickoo/automation_water_storage/tree/main/infra" target="_blank" rel="noopener noreferrer" class="view-link">View Stack &rarr;</a>
             </div>
 
@@ -270,6 +362,88 @@
                 <span class="project-title">Book-Biz management system</span>
                 <p class="project-description">A library book-record management app built in C# / .NET (Visual Studio solution), with in-memory data storage.</p>
                 <a href="https://github.com/deepeshtickoo/BookBizManagementSystem" target="_blank" rel="noopener noreferrer" class="view-link">View Project &rarr;</a>
+            </div>
+        </section>
+
+        <section id="toolbox">
+            <h2>Toolbox</h2>
+            <p class="toolbox-intro">Enterprise-grade tools I run and maintain myself, every day, in a live setup. Each one is in use, not just installed, and I can show any of them to an interviewer.</p>
+            <div class="toolbox">
+                <div class="tool">
+                    <span class="tool-cat">Containers</span>
+                    <span class="tool-name">Docker &amp; Docker Compose</span>
+                    <p>Every service runs as a container; the monitoring stack is one Compose file kept in Git.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">CI</span>
+                    <span class="tool-name">GitHub Actions</span>
+                    <p>Tests and a Docker image build run on every change to the Water API.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Metrics</span>
+                    <span class="tool-name">Prometheus</span>
+                    <p>Scrapes the server and every Home Assistant sensor every 30 seconds, kept for 90 days.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Dashboards</span>
+                    <span class="tool-name">Grafana</span>
+                    <p>Server health and a live water-system dashboard, stored as JSON in the repo.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Logging</span>
+                    <span class="tool-name">Loki + Grafana Alloy</span>
+                    <p>Logs from every container and the host journal, searchable in one place.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Messaging</span>
+                    <span class="tool-name">MQTT (Mosquitto)</span>
+                    <p>Authenticated broker for devices that must keep working when Home Assistant restarts.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Zero-trust access</span>
+                    <span class="tool-name">Cloudflare Tunnel</span>
+                    <p>HTTPS access to internal services with no open ports on the router.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">VPN</span>
+                    <span class="tool-name">Tailscale</span>
+                    <p>WireGuard mesh for admin access to the servers from anywhere.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Storage and hosting</span>
+                    <span class="tool-name">TrueNAS SCALE &amp; ZFS</span>
+                    <p>Hosts the apps, the Home Assistant VM and data on ZFS with snapshots.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Virtualisation</span>
+                    <span class="tool-name">KVM</span>
+                    <p>Home Assistant OS runs as a VM next to the container workloads.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Automation</span>
+                    <span class="tool-name">Home Assistant &amp; Node-RED</span>
+                    <p>Event-driven controller for the water system, with a Telegram bot and email reports.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Data</span>
+                    <span class="tool-name">SQLite</span>
+                    <p>Event store for the controller: readings, pump runs, events and daily summaries.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Backend</span>
+                    <span class="tool-name">Node.js &amp; Express</span>
+                    <p>REST API and dashboard with login, tests and a container build.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">Self-hosted apps</span>
+                    <span class="tool-name">Nextcloud &amp; Immich</span>
+                    <p>File sync and photo library, replacing cloud subscriptions.</p>
+                </div>
+                <div class="tool">
+                    <span class="tool-cat">AI platform</span>
+                    <span class="tool-name">LLM gateway (OpenAI-compatible)</span>
+                    <p>One API key for several model providers, used by Home Assistant, a bot and Open WebUI.</p>
+                </div>
             </div>
         </section>
 
