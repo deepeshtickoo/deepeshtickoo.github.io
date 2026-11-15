@@ -208,7 +208,7 @@
             <div class="header-top">
                 <div>
                     <h1>Deepesh Tickoo</h1>
-                    <p class="tagline">Backend &amp; Systems Engineer, Noida / Delhi NCR. I build and look after backend services and the Linux servers they run on.</p>
+                    <p class="tagline">Backend &amp; Systems Engineer, Delhi NCR. I like building things that keep working after everyone has gone home.</p>
                     <a href="cv.pdf" class="cv-button" download>Download CV (PDF)</a>
                 </div>
                 <img src="profile.jpg" alt="Deepesh Tickoo" class="profile-pic">
@@ -230,13 +230,13 @@
         <section id="about">
             <h2>About</h2>
             <p>
-                I've worked in IT since 2011, from Android firmware and desktop support to server uptime, security compliance and web backends.
+                I started in 2011, flashing and porting Android firmware on the XDA forums, mostly to see what would happen. That curiosity stuck. Since then I've supported desktops and offices, kept servers up and compliant in Montréal, brought a company's website back from an outage, and now build and run backend services of my own on Linux.
             </p>
             <p>
-                Today I design and run event-driven services on self-hosted Linux: state machines, REST and webhook integrations, SQL data layers, monitoring and alerts, plus LLM routing and MCP tool access. When something breaks I start from the logs and data, and I keep looking after what I build once it's running.
+                Most of my work sits where software meets the real world: services that react to events, talk to other systems over REST, webhooks and MQTT, keep a record of what happened in SQL, and say something when things look off. I enjoy the quiet parts too: reading logs, following a problem back to where it started, and leaving a system a little easier for the next person to understand.
             </p>
             <p>
-                I'm looking for roles in IT services and service delivery: infrastructure, backend and support engineering, building and looking after systems for clients. The tools under <a href="#toolbox">Toolbox</a> are ones I've set up and use myself, and I'm happy to show how.
+                I'm looking for roles in IT services and service delivery, in infrastructure, backend or support engineering, where the work is building things for clients and then looking after them. The <a href="#toolbox">Toolbox</a> below is what I use day to day, and I'm always glad to talk through how any of it is set up.
             </p>
         </section>
 
@@ -258,30 +258,31 @@
             <div class="experience-item">
                 <span class="experience-title">Independent Backend &amp; Systems Engineer</span>
                 <p class="experience-meta">Delhi NCR (2025 - Present)</p>
-                <p class="experience-description">Built and run a live, automatic water supply controller with a SQLite event store, Telegram bot and email reports, plus a tested Node.js/Express API for it with GitHub Actions CI. Operate a TrueNAS server with a Home Assistant VM, Docker apps and a multi-provider LLM gateway behind Cloudflare Tunnel, monitored with Prometheus, Grafana and Loki.</p>
+                <p class="experience-description">I build and run my own services on a self-hosted Linux server: an event-driven controller with a SQLite event store and alerts, a small Node.js API with tests and CI, and monitoring with Prometheus, Grafana and Loki. It's a good teacher, because there's nobody else to page.</p>
             </div>
 
             <div class="experience-item">
                 <span class="experience-title">Backend &amp; Server Engineer, DB Coals</span>
                 <p class="experience-meta">Delhi (2023)</p>
-                <p class="experience-description">Restored the company website and servers after an outage by redeploying a clean codebase, and fixed SQL injection issues in the database layer.</p>
+                <p class="experience-description">Came in while the company's website and servers were down. Redeployed a clean, working codebase, got everything back online, and closed the SQL injection holes in the database layer.</p>
             </div>
 
             <div class="experience-item">
                 <span class="experience-title">Backend Server Intern, SOS Consulting and Acumatica</span>
                 <p class="experience-meta">Montréal (Feb 2023 - May 2023)</p>
-                <p class="experience-description">Managed backend server uptime and upgraded servers to the security compliance standards of the time.</p>
+                <p class="experience-description">Kept backend servers running and brought them up to the security compliance standards of the time. A solid grounding in how production is run when uptime matters.</p>
             </div>
 
             <div class="experience-item">
                 <span class="experience-title">Desktop Engineer, Future Heights Pvt Ltd</span>
                 <p class="experience-meta">Dec 2017 - Jan 2020</p>
+                <p class="experience-description">Day-to-day support for the people, desktops and office network of a growing company.</p>
             </div>
 
             <div class="experience-item">
                 <span class="experience-title">Android Firmware Tester &amp; Contributor</span>
                 <p class="experience-meta">Micromax Canvas, XDA &amp; GSM forums (2011 - 2012)</p>
-                <p class="experience-description">Tested Micromax Canvas Android builds and ported modem and GPS libraries across firmware versions for devices sold in other regions.</p>
+                <p class="experience-description">Tested Micromax Canvas Android builds and ported modem and GPS libraries across firmware versions for devices sold in other regions. This is where the curiosity started.</p>
             </div>
         </section>
 
@@ -290,7 +291,7 @@
 
             <div class="project-item">
                 <span class="project-title">Automatic Water Supply Storage System</span>
-                <p class="project-description">Event-driven controller for an unreliable alternate-day municipal supply. Checks for water every 5 minutes, judges flow and quality, runs the pump with safety cut-offs, and logs everything to SQLite. Built on Node-RED, Home Assistant and ESP32.</p>
+                <p class="project-description">A controller for a residential water supply that turns up every other day, at low pressure, and often dirty at first. It waits for the supply, checks the water quality, runs the pump with safety cut-offs and logs every step to SQLite. Mostly a lesson in state machines, and in trusting sensors only as far as they deserve.</p>
                 <div class="project-media">
                     <svg class="arch" viewBox="0 0 632 200" role="img" aria-label="Controller routine: probe for supply, wait 40 minutes, valve check on TDS, 50 second pump pulse, then fill to 95 percent, with fallbacks for bad water and low flow">
                         <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1a3a7a"/></marker></defs>
@@ -327,7 +328,7 @@
 
             <div class="project-item">
                 <span class="project-title">Water API &amp; Phone Dashboard</span>
-                <p class="project-description">A read-only REST API and mobile dashboard for the water system, built with Node.js 22 and Express and packaged as a Docker container running as a Home Assistant app. Serves live sensor states from the Home Assistant API, a daily summary and history charts (server-drawn SVG) from the controller's SQLite database, with optional Basic auth and code that reloads without rebuilding the image. Tests and a Docker build run in GitHub Actions on each change.</p>
+                <p class="project-description">A small read-only REST API and phone dashboard over that controller's data, written in Node.js and Express and shipped as a container. It has a login, server-drawn charts, tests and a CI pipeline, and it can't change anything, by design.</p>
                 <div class="project-media">
                     <div class="shots">
                         <img src="img/water-api-live.webp" alt="Live page: tank, pump, drain valve, flow, TDS and mains voltage" loading="lazy">
@@ -341,7 +342,7 @@
 
             <div class="project-item">
                 <span class="project-title">Self-Hosted Homelab, Observability &amp; LLM Gateway</span>
-                <p class="project-description">A TrueNAS SCALE server running a Home Assistant VM and Docker apps, with remote access through Cloudflare Tunnel. One multi-provider LLM gateway (FreeLLMAPI) serves Home Assistant Assist, a Telegram bot and Open WebUI with a single API key, so the AI provider can be changed without touching the apps that use it. A monitoring stack runs alongside as one Docker Compose app: Prometheus collects server and Home Assistant metrics, Grafana Alloy sends container and host logs to Loki, and a Grafana dashboard shows the water system. Mosquitto provides an MQTT broker with password login.</p>
+                <p class="project-description">The server most of this runs on: TrueNAS SCALE with containers and a Home Assistant VM, reached through Cloudflare Tunnel and Tailscale. It hosts an OpenAI-compatible gateway so several apps share one AI key, and a monitoring stack (Prometheus, Grafana, Loki, Alloy and an MQTT broker) in a single Compose file. It's where I try things properly before I'd suggest them to anyone else.</p>
                 <div class="project-media">
                     <svg class="arch" viewBox="0 0 640 330" role="img" aria-label="Homelab architecture: Cloudflare Tunnel and Tailscale into a TrueNAS SCALE server running Docker apps, an observability stack and a Home Assistant VM fed by ESP32 sensors">
                         <rect x="0" y="0" width="640" height="330" rx="8" fill="#f2f6fc"/>
@@ -389,7 +390,7 @@
 
         <section id="toolbox">
             <h2>Toolbox</h2>
-            <p class="toolbox-intro">Tools widely used in industry that I've set up and use in my own setup, with a line on what each one does there.</p>
+            <p class="toolbox-intro">What I work with day to day, and what each tool is actually doing in my setup.</p>
             <div class="toolbox">
                 <div class="tool">
                     <span class="tool-cat">Containers</span>
